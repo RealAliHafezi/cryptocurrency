@@ -11,6 +11,9 @@ export const CoinSliceFun = createAsyncThunk("CoinSlice/data", async () => {
 const initialState = {
   Data: [],
   Favorite: [],
+  ThreeTop: [],
+  ThreeBottom: [],
+  BiggestGainers: [],
   pending: false,
   rejected: false,
   rejectedMsg: "",
@@ -25,6 +28,21 @@ const CoinSlice = createSlice({
   extraReducers: {
     [CoinSliceFun.fulfilled]: (state, action) => {
       state.Data = action.payload;
+      state.ThreeTop = action.payload
+        .sort((a, b) => b.current_price - a.current_price)
+        .slice(0, 3);
+      state.ThreeBottom = action.payload
+        .sort(
+          (a, b) =>
+            a.price_change_percentage_24h - b.price_change_percentage_24h
+        )
+        .slice(0, 3);
+      state.BiggestGainers = action.payload
+        .sort(
+          (a, b) =>
+            b.price_change_percentage_24h - a.price_change_percentage_24h
+        )
+        .slice(0, 3);
       state.pending = false;
       state.rejected = false;
       state.full = true;

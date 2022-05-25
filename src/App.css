@@ -6,8 +6,12 @@
 }
 :root {
   --purple: #ac32e4;
+  --darkpurple: #3c0a53;
   --blue: #4801ff;
   --darkblue: #0c2335;
+  --background: #031624;
+  --fire: #e25822;
+  --backgroundfire: linear-gradient(135deg, rgb(85, 3, 3), #ff0000);
 }
 *,
 *::before,
@@ -30,11 +34,11 @@ a {
 ul,
 ol,
 li {
-  list-style-type: none;
+  list-style: none;
 }
 /* Local */
 .App {
   width: 100%;
-  height: 100vh;
-  background-color: var(--darkblue);
+  height: 100%;
+  background-color: var(--background);
 }

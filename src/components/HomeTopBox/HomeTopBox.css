@@ -1,0 +1,66 @@
+.HomeTopBox {
+  min-height: 35vh !important;
+}
+.HomeTopBoxBox {
+  background-color: var(--background) !important;
+  height: 100%;
+}
+.HomeTopBoxLable {
+  font-size: 14px;
+}
+.HomeTopBoxLableFire * {
+  background: var(--backgroundfire);
+  border-radius: 50%;
+  color: var(--fire);
+}
+/* items */
+.HomeTopBoxList {
+  height: 75%;
+  display: flex;
+  justify-content: space-around !important;
+  flex-direction: column;
+}
+.HomeTopBoxItem:hover {
+  background-color: var(--darkblue);
+  cursor: pointer;
+}
+.HomeTopBoxLeft {
+  max-width: 75%;
+}
+.HomeTopBoxItemID {
+  font-style: 12px !important;
+  color: gray;
+}
+.HomeTopBoxItemImg {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+  border-radius: 50%;
+}
+.HomeTopBoxItemSynbol {
+  font-size: 16px !important;
+  color: gray !important;
+}
+.HomeTopBoxItemPercentage_green * {
+  color: green;
+}
+.HomeTopBoxItemPercentage_red * {
+  color: red;
+}
+
+@media only screen and (max-width: 576px) {
+  .HomeTopBoxItemImg {
+    width: 25px;
+    height: 25px;
+  }
+  .HomeTopBoxItemSynbol {
+    font-size: 14px !important;
+  }
+  .HomeTopBoxItemPrice,
+  .HomeTopBoxItemPercentage {
+    font-size: 13px !important;
+  }
+  .HomeTopBoxItemPercentage {
+    font-size: 14px !important;
+  }
+}
