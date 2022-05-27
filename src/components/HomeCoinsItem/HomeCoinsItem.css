@@ -1,0 +1,37 @@
+.HomeCoinsItem {
+  /* width: 100%; */
+}
+/* left of list item */
+.HomeCoinsItemLeft {
+  width: 28%;
+  max-width: 28%;
+  min-width: 28%;
+}
+.HomeCoinsItemKey {
+  font-size: 16px;
+  color: gray;
+}
+.HomeCoinsItemImg {
+  width: 35px;
+  height: 35px;
+  object-fit: contain;
+  border-radius: 50%;
+}
+.HomeCoinsItemName {
+  letter-spacing: 1px;
+  font-size: 16px;
+}
+.HomeCoinsItemSymbol {
+  font-size: 13px;
+  color: gray;
+}
+.HomeCoinsItemPrice {
+  width: 6rem;
+}
+.HomeCoinsItemChanges {
+  font-size: 15px;
+  width: 4rem;
+}
+.HomeCoinsItemMarketCap {
+  width: 8rem;
+}

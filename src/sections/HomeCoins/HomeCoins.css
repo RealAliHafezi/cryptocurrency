@@ -1,0 +1,88 @@
+.HomeCoins {
+  width: 100%;
+  height: auto;
+  min-height: 40vh;
+  border: 1px solid var(--darkpurple);
+  background-color: var(--darkblue);
+  border-radius: 10px;
+}
+/* searchBox */
+.HomeCoins-SearchBox {
+  position: relative;
+  width: 60%;
+}
+.HomeCoins-SearchBox-icon {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 26px;
+  z-index: 9;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.HomeCoins-SearchBox-icon:hover {
+  font-size: 30px;
+}
+.HomeCoins-SearchBox input {
+  border: 1px solid var(--darkpurple);
+  border-radius: 20px !important;
+  font-size: 18px !important;
+}
+.HomeCoins-SearchBox input:focus {
+  outline: none;
+  box-shadow: none;
+  border-color: var(--blue) !important;
+}
+.HomeCoins-SearchBox-icon * {
+  color: var(--background);
+}
+/* select */
+.HomeCoins-Select {
+  cursor: pointer;
+  color: #fff !important;
+  border: none !important;
+  background: linear-gradient(
+    45deg,
+    var(--blue),
+    var(--darkpurple),
+    var(--background)
+  ) !important;
+}
+.HomeCoins-Select:focus {
+  outline: none !important;
+  box-shadow: none !important;
+  border: none !important;
+  background-color: var(--blue);
+}
+.HomeCoins-SelectOption {
+  background-color: var(--darkblue) !important;
+  cursor: pointer;
+}
+.HomeCoins-Select:focus .HomeCoins-SelectOption:hover {
+  outline: none !important;
+  background: var(--blue) !important;
+}
+
+/* list of coins */
+.HomeCoinsItem_title {
+  background-color: var(--background);
+  border-radius: 10px;
+}
+.HomeCoinsItemName_title,
+.HomeCoinsItemPrice_title,
+.HomeCoinsItemChanges_title,
+.HomeCoinsItemMarketCap_title,
+.HomeCoinsItemVolume_title {
+  font-size: 14px !important;
+  color: gray !important;
+}
+@media only screen and (max-width: 576px) {
+  .HomeCoins {
+    border: none;
+    border-radius: 0;
+  }
+  .HomeCoins-SearchBox {
+    width: 70%;
+  }
+}

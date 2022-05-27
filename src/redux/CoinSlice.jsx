@@ -10,10 +10,12 @@ export const CoinSliceFun = createAsyncThunk("CoinSlice/data", async () => {
 });
 const initialState = {
   Data: [],
+  DataFilter: [],
   Favorite: [],
-  ThreeTop: [],
-  ThreeBottom: [],
+  Top: [],
+  Bottom: [],
   BiggestGainers: [],
+  MarketRank: [],
   pending: false,
   rejected: false,
   rejectedMsg: "",
@@ -24,25 +26,54 @@ const CoinSlice = createSlice({
   initialState,
   reducers: {
     AddToFavorite: (state, action) => {},
+    SearchResult: (state, action) => {
+      let data;
+      if (action.payload.Data == null) {
+        data = state.Top.filter((item) =>
+          item.name.toLowerCase().includes(action.payload.txt.toLowerCase())
+        );
+      } else {
+        data = action.payload.Data.filter((item) =>
+          item.name.toLowerCase().includes(action.payload.txt.toLowerCase())
+        );
+      }
+      state.DataFilter = data;
+      if (action.payload.txt.length <= 0) {
+        // when we have not txt , we should show all data and wich data ? that one i sleceted in droprown ( select and option )
+        if (action.payload.Data == null) {
+          state.DataFilter = state.Top;
+        } else {
+          state.DataFilter = action.payload.Data;
+        }
+      }
+    },
+    HomeFilter: (state, action) => {
+      // for dropdown
+      state.DataFilter = action.payload.Data;
+    },
   },
   extraReducers: {
     [CoinSliceFun.fulfilled]: (state, action) => {
       state.Data = action.payload;
-      state.ThreeTop = action.payload
+      state.MarketRank = action.payload
+        .sort((a, b) => a.market_cap_rank - b.market_cap_rank)
+        .slice(0, action.payload.legth);
+      state.Top = action.payload
         .sort((a, b) => b.current_price - a.current_price)
-        .slice(0, 3);
-      state.ThreeBottom = action.payload
+        .slice(0, action.payload.length);
+      state.Bottom = action.payload
         .sort(
           (a, b) =>
             a.price_change_percentage_24h - b.price_change_percentage_24h
         )
-        .slice(0, 3);
+        .slice(0, action.payload.length);
       state.BiggestGainers = action.payload
         .sort(
           (a, b) =>
             b.price_change_percentage_24h - a.price_change_percentage_24h
         )
-        .slice(0, 3);
+        .slice(0, action.payload.legth);
+      state.DataFilter = state.Top;
       state.pending = false;
       state.rejected = false;
       state.full = true;
@@ -60,5 +91,5 @@ const CoinSlice = createSlice({
     },
   },
 });
-export const { AddToFavorite } = CoinSlice.actions;
+export const { AddToFavorite, HomeFilter, SearchResult } = CoinSlice.actions;
 export default CoinSlice.reducer;

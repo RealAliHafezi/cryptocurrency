@@ -13,13 +13,12 @@ import HomeTopBox from "../../components/HomeTopBox/HomeTopBox";
 import "./HomeTops.css";
 function HomeTops() {
   const BiggestGainers = useSelector((state) => state.Coin.BiggestGainers);
-  const ThreeTop = useSelector((state) => state.Coin.ThreeTop);
-  const ThreeBottom = useSelector((state) => state.Coin.ThreeBottom);
-  console.log(ThreeBottom);
+  const ThreeTop = useSelector((state) => state.Coin.Top);
+  const ThreeBottom = useSelector((state) => state.Coin.Bottom);
   const dispatch = useDispatch();
   const Data = [
     {
-      data: BiggestGainers,
+      data: BiggestGainers.slice(0, 3),
       lable: "Biggest Gainers",
       lableIcon: (
         <span className="HomeTopBoxLableFire fs-3 ms-2">
@@ -30,7 +29,7 @@ function HomeTops() {
       percentage: true,
     },
     {
-      data: ThreeTop,
+      data: ThreeTop.slice(0, 3),
       lable: "Three Top",
       lableIcon: (
         <span className="HomeTopBoxLableFire fs-3 ms-2">
@@ -40,7 +39,7 @@ function HomeTops() {
       price: false,
     },
     {
-      data: ThreeBottom,
+      data: ThreeBottom.slice(0, 3),
       lable: "Three Bottom",
       lableIcon: (
         <span className="HomeTopBoxLableFire fs-3 ms-2">
@@ -55,7 +54,7 @@ function HomeTops() {
     dispatch(CoinSliceFun());
   }, [CoinSliceFun]);
   return (
-    <div className="HomeTable px-3 px-md-5 pt-4 pb-2">
+    <div className="HomeTable px-3 px-md-5 pt-4 pb-2 my-2">
       <h1 className="fw-bolder fs-6 fs-md-5 my-3 ChartTitle d-flex align-items-center ">
         Most Cryptocurrencies
         <span className="HomeChartFire fs-3 ms-2">
@@ -64,7 +63,7 @@ function HomeTops() {
       </h1>
       <div className="row">
         {Data.length ? (
-          Data.map((item) => <HomeTopBox data={item} />)
+          Data.map((item, index) => <HomeTopBox key={index} data={item} />)
         ) : (
           <h1>Error Internet Connection</h1>
         )}

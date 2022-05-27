@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 // icon
 import { MdOutlineArrowDropUp, MdOutlineArrowDropDown } from "react-icons/md";
 // style
@@ -13,41 +14,44 @@ function HomeTopBox(props) {
         <ul className="HomeTopBoxList p-0">
           {props.data.data &&
             props.data.data.map((item, index) => (
-              <li
-                className="HomeTopBoxItem d-flex align-items-center justify-content-between rounded-3 px-2 py-1"
+              <Link
+                to={`/${item.name}`}
+                style={{ textDecoration: "none" }}
                 key={index}
               >
-                <div className="HomeTopBoxLeft d-flex align-items-center">
-                  <span className="HomeTopBoxItemID me-1 me-sm-3">
-                    {index + 1}
-                  </span>
-                  <img
-                    src={item.image}
-                    className="HomeTopBoxItemImg"
-                    alt={item.name}
-                  />
-                  <span className="fs-6 mx-2 d-none d-sm-block">
-                    {item.name}
-                  </span>
-                  <span className="HomeTopBoxItemSynbol mx-1 mx-sm-0">
-                    {item.symbol}
-                  </span>
-                </div>
-                {props.data.price ? (
-                  <span className="HomeTopBoxItemPercentage">
-                    {props.data.percentage ? (
-                      <MdOutlineArrowDropUp className="fs-3 ms-1 HomeTopBoxItemPercentage_green" />
-                    ) : (
-                      <MdOutlineArrowDropDown className="fs-3 ms-1 HomeTopBoxItemPercentage_red" />
-                    )}
-                    {item.price_change_percentage_24h.toFixed(1)}%
-                  </span>
-                ) : (
-                  <span className="HomeTopBoxItemPrice">
-                    $ {item.current_price}
-                  </span>
-                )}
-              </li>
+                <li className="HomeTopBoxItem d-flex align-items-center justify-content-between rounded-3 px-2 py-1">
+                  <div className="HomeTopBoxLeft d-flex align-items-center">
+                    <span className="HomeTopBoxItemID me-1 me-sm-3">
+                      {index + 1}
+                    </span>
+                    <img
+                      src={item.image}
+                      className="HomeTopBoxItemImg"
+                      alt={item.name}
+                    />
+                    <span className="fs-6 mx-2 d-none d-sm-block">
+                      {item.name}
+                    </span>
+                    <span className="HomeTopBoxItemSynbol mx-1 mx-sm-0">
+                      {item.symbol}
+                    </span>
+                  </div>
+                  {props.data.price ? (
+                    <span className="HomeTopBoxItemPercentage">
+                      {props.data.percentage ? (
+                        <MdOutlineArrowDropUp className="fs-3 ms-1 HomeTopBoxItemPercentage_green" />
+                      ) : (
+                        <MdOutlineArrowDropDown className="fs-3 ms-1 HomeTopBoxItemPercentage_red" />
+                      )}
+                      {item.price_change_percentage_24h.toFixed(1)}%
+                    </span>
+                  ) : (
+                    <span className="HomeTopBoxItemPrice">
+                      $ {item.current_price}
+                    </span>
+                  )}
+                </li>
+              </Link>
             ))}
         </ul>
       </div>
