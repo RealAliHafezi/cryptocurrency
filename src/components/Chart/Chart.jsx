@@ -35,7 +35,7 @@ function Chart(props) {
 
   return (
     <div className="col-11 col-md-10 col-lg-8 Chart mx-0 mx-md-auto">
-      <ResponsiveContainer width="100%" height={300}>
+      <ResponsiveContainer width="100%" height={300} className="chart">
         <BarChart
           data={data}
           margin={{

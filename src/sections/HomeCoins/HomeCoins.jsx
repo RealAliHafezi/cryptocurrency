@@ -12,16 +12,18 @@ function HomeCoins() {
   const DataTop = useSelector((state) => state.Coin.Top);
   const DataBottom = useSelector((state) => state.Coin.Bottom);
   const DataRank = useSelector((state) => state.Coin.MarketRank);
+  const Filter = useSelector((state) => state.Coin.DataFilter);
   const [OptionIn, setOptionIn] = useState(null);
+  const [filter, setFilter] = useState(20);
   const [Txt, setTxt] = useState("");
 
   const handleSearch = (e) => {
     // for input text changed
-    dispatch(SearchResult({ txt: e.target.value, Data: OptionIn }));
+    dispatch(SearchResult({ txt: Txt, Data: OptionIn }));
     // for select and options changed
     if (e.target.selectedIndex === 0) {
-      dispatch(HomeFilter({ Data: DataTop }));
-      setOptionIn(DataTop);
+      dispatch(HomeFilter({ Data: DataRank }));
+      setOptionIn(DataRank);
     } else if (e.target.selectedIndex === 1) {
       dispatch(HomeFilter({ Data: DataBiggest }));
       setOptionIn(DataBiggest);
@@ -29,12 +31,12 @@ function HomeCoins() {
       dispatch(HomeFilter({ Data: DataBottom }));
       setOptionIn(DataBottom);
     } else if (e.target.selectedIndex === 3) {
-      dispatch(HomeFilter({ Data: DataRank }));
-      setOptionIn(DataRank);
+      dispatch(HomeFilter({ Data: DataTop }));
+      setOptionIn(DataTop);
     }
   };
   return (
-    <div className="HomeCoins px-3 px-md-5 pt-4 pb-2 my-2">
+    <div className="HomeCoins px-1 px-sm-3 px-md-5 pt-4 pb-2 my-2">
       <div className="filterBox w-100 d-flex justify-content-between align-items-center">
         <form className="HomeCoins-SearchBox">
           <AiOutlineSearch className="HomeCoins-SearchBox-icon" />
@@ -44,7 +46,7 @@ function HomeCoins() {
               setTxt(e.target.value);
             }}
             type="text"
-            className="w-100 form-control py-2 px-3 fw-bold"
+            className="w-100 form-control py-2 px-3 fw-bold mx-1"
             placeholder="Search Coin..."
           />
         </form>
@@ -56,7 +58,7 @@ function HomeCoins() {
           }}
         >
           <option selected value={0} className="HomeCoins-SelectOption">
-            Tops
+            Rank
           </option>
           <option value={1} className="HomeCoins-SelectOption">
             Biggest
@@ -65,36 +67,55 @@ function HomeCoins() {
             Biggest SetBack
           </option>
           <option value={3} className="HomeCoins-SelectOption">
-            Rank
+            Tops
           </option>
         </select>
       </div>
-      <ul className="HomeCoinsList w-100 p-0 my-3">
-        <li className="HomeCoinsItem HomeCoinsItem_title w-100 d-flex align-items-center px-2">
-          <div className="HomeCoinsItemLeft d-flex align-items-center">
-            <span className="HomeCoinsItemKey me-2">#</span>
-            <span className="HomeCoinsItemImg"></span>
-            <span className="HomeCoinsItemName HomeCoinsItemName_title  fw-normal ms-2">
-              Name
-            </span>
+      <ul className="HomeCoinsList w-100 px-4 pe-0 px-md-0 my-3 row">
+        <li className="HomeCoinsItem HomeCoinsItem_title d-none d-lg-flex align-items-center px-4 py-1 mb-2">
+          <div className="HomeCoinsItemImgBox align-items-center d-flex me-2">
+            <span className="HomeCoinsItemIndex me-1">#</span>
+            <span className="HomeCoinsItemImg HomeCoinItemImg_title"></span>
           </div>
-          <div className="HomeCoinsItemCnter d-flex align-items-center">
-            <span className="HomeCoinsItemPrice HomeCoinsItemPrice_title fw-bold ms-2">
-              price
-            </span>
-            <span className="HomeCoinsItemChanges HomeCoinsItemChanges_title fw-bold ms-2">
-              Changes
-            </span>
-            <span className="HomeCoinsItemMarketCap HomeCoinsItemMarketCap_title fw-bold ms-4">
-              Market Cap
-            </span>
-            <span className="HomeCoinsItemVolume HomeCoinsItemVolume_title fw-bold ms-4">
-              Volume
-            </span>
+          <div className="HomeCoinsItemInfo d-flex align-items-center">
+            <div className="HomeCoinsItemNameBox mb-2 mb-lg-0">
+              <span className="HomeCoinsItemName HomeCoinsItemName_title">
+                Name
+              </span>
+              <span className="HomeCoinsItemSym ms-2 fw-bold"></span>
+            </div>
+            <div className="HomeCoinsItemDesc d-flex">
+              <span className="HomeCoinsItemPrice HomeCoinsItemPrice_title">
+                Price
+              </span>
+              <span className="HomeCoinsItemChanges HomeCoinsItemChanges_title">
+                Changes
+              </span>
+              <span className="HomeCoinsItemMarketCap HomeCoinsItemMarketCap_title">
+                Market Cap
+              </span>
+              <span className="HomeCoinsItemVolume HomeCoinsItemVolume_title">
+                Volume
+              </span>
+            </div>
           </div>
         </li>
-
-        <HomeCoinsItem />
+        {Filter.length ? (
+          Filter.slice(0, filter).map((item, index) => (
+            <HomeCoinsItem coin={item} key={index} index={index} />
+          ))
+        ) : (
+          <div>error</div>
+        )}
+        <button
+          className="HomeCoinItemBtn w-auto fw-bold py-2 px-3 mt-5 mt-md-4 mx-auto"
+          onClick={(e) => {
+            setFilter(Filter.length);
+            e.target.style.display = "none";
+          }}
+        >
+          Show More Coins
+        </button>
       </ul>
     </div>
   );

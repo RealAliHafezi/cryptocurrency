@@ -5,6 +5,12 @@
   background-color: var(--darkblue);
   border-radius: 10px;
 }
+@media only screen and (max-width: 992px) {
+  .HomeTable {
+    background-color: var(--background);
+  }
+}
+
 @media only screen and (max-width: 576px) {
   .HomeTable {
     border: none;

@@ -29,7 +29,7 @@ const CoinSlice = createSlice({
     SearchResult: (state, action) => {
       let data;
       if (action.payload.Data == null) {
-        data = state.Top.filter((item) =>
+        data = state.MarketRank.filter((item) =>
           item.name.toLowerCase().includes(action.payload.txt.toLowerCase())
         );
       } else {
@@ -41,7 +41,7 @@ const CoinSlice = createSlice({
       if (action.payload.txt.length <= 0) {
         // when we have not txt , we should show all data and wich data ? that one i sleceted in droprown ( select and option )
         if (action.payload.Data == null) {
-          state.DataFilter = state.Top;
+          state.DataFilter = state.MarketRank;
         } else {
           state.DataFilter = action.payload.Data;
         }
@@ -55,9 +55,6 @@ const CoinSlice = createSlice({
   extraReducers: {
     [CoinSliceFun.fulfilled]: (state, action) => {
       state.Data = action.payload;
-      state.MarketRank = action.payload
-        .sort((a, b) => a.market_cap_rank - b.market_cap_rank)
-        .slice(0, action.payload.legth);
       state.Top = action.payload
         .sort((a, b) => b.current_price - a.current_price)
         .slice(0, action.payload.length);
@@ -73,7 +70,10 @@ const CoinSlice = createSlice({
             b.price_change_percentage_24h - a.price_change_percentage_24h
         )
         .slice(0, action.payload.legth);
-      state.DataFilter = state.Top;
+      state.MarketRank = action.payload
+        .sort((a, b) => a.market_cap_rank - b.market_cap_rank)
+        .slice(0, action.payload.legth);
+      state.DataFilter = state.MarketRank;
       state.pending = false;
       state.rejected = false;
       state.full = true;

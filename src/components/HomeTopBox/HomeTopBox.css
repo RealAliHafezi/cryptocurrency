@@ -32,10 +32,13 @@
   color: gray;
 }
 .HomeTopBoxItemImg {
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
   object-fit: contain;
   border-radius: 50%;
+}
+.HomeTopBoxName {
+  font-size: 16px;
 }
 .HomeTopBoxItemSynbol {
   font-size: 16px !important;
@@ -47,20 +50,30 @@
 .HomeTopBoxItemPercentage_red * {
   color: red;
 }
+/* responsive */
+
+@media only screen and (max-width: 992px) {
+  .HomeTopBoxBox {
+    background: radial-gradient(
+      var(--darkpurple),
+      var(--background)
+    ) !important;
+  }
+}
 
 @media only screen and (max-width: 576px) {
   .HomeTopBoxItemImg {
-    width: 25px;
-    height: 25px;
+    width: 55px;
+    height: 55px;
   }
-  .HomeTopBoxItemSynbol {
+  .HomeTopBoxName {
     font-size: 14px !important;
   }
   .HomeTopBoxItemPrice,
   .HomeTopBoxItemPercentage {
-    font-size: 13px !important;
+    font-size: 16px !important;
   }
   .HomeTopBoxItemPercentage {
-    font-size: 14px !important;
+    font-size: 16px !important;
   }
 }

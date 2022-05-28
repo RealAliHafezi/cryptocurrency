@@ -12,7 +12,7 @@ function HomeChart() {
   const Data = useSelector((state) => state.Coin.Top);
   return (
     <div className="HomeChart px-3 px-md-5 py-2 my-2 position-relative">
-      <h1 className="fw-bolder fs-6 fs-md-5 mt-3 mb-4 ChartTitle d-flex align-items-center ">
+      <h1 className="fw-bolder fs-4 fs-md-5 mt-3 mb-4 ChartTitle d-flex align-items-center ">
         Three Top Cryptocurrency{" "}
         <span className="HomeChartFire fs-3 ms-2">
           <AiFillFire />

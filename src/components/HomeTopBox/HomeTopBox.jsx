@@ -14,11 +14,7 @@ function HomeTopBox(props) {
         <ul className="HomeTopBoxList p-0">
           {props.data.data &&
             props.data.data.map((item, index) => (
-              <Link
-                to={`/${item.name}`}
-                style={{ textDecoration: "none" }}
-                key={index}
-              >
+              <Link className="Link" to={`/${item.name}`} key={index}>
                 <li className="HomeTopBoxItem d-flex align-items-center justify-content-between rounded-3 px-2 py-1">
                   <div className="HomeTopBoxLeft d-flex align-items-center">
                     <span className="HomeTopBoxItemID me-1 me-sm-3">
@@ -29,10 +25,10 @@ function HomeTopBox(props) {
                       className="HomeTopBoxItemImg"
                       alt={item.name}
                     />
-                    <span className="fs-6 mx-2 d-none d-sm-block">
+                    <span className="HomeTopBoxName mx-2 d-block">
                       {item.name}
                     </span>
-                    <span className="HomeTopBoxItemSynbol mx-1 mx-sm-0">
+                    <span className="HomeTopBoxItemSynbol d-none d-sm-block mx-1 mx-sm-0">
                       {item.symbol}
                     </span>
                   </div>

@@ -6,14 +6,16 @@ import "./App.css";
 import Home from "./pages/Home/Home";
 import Navbar from "./sections/Navbar/Navbar";
 import Coin from "./pages/Coin/Coin";
+import Footer from "./sections/Footer/Footer";
 function App() {
   return (
     <div className="App">
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/:CoinId" element={<Coin />} />
+        <Route path="/:CoinName" element={<Coin />} />
       </Routes>
+      <Footer />
     </div>
   );
 }

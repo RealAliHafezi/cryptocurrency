@@ -55,7 +55,7 @@ function HomeTops() {
   }, [CoinSliceFun]);
   return (
     <div className="HomeTable px-3 px-md-5 pt-4 pb-2 my-2">
-      <h1 className="fw-bolder fs-6 fs-md-5 my-3 ChartTitle d-flex align-items-center ">
+      <h1 className="fw-bolder fs-4 fs-md-5 my-3 ChartTitle d-flex align-items-center ">
         Most Cryptocurrencies
         <span className="HomeChartFire fs-3 ms-2">
           <SiMattermost />

@@ -17,6 +17,12 @@
   font-size: 11px !important;
   color: gray !important;
 }
+@media only screen and (max-width: 992px) {
+  .HomeChart {
+    background-color: var(--background);
+  }
+}
+
 @media only screen and (max-width: 576px) {
   .HomeChart {
     border: none;
