@@ -4,6 +4,7 @@ import HomeCoins from "../../sections/HomeCoins/HomeCoins";
 import HomeTops from "../../sections/HomeTops/HomeTops";
 import "./Home.css";
 function Home() {
+  document.title = "CALI";
   return (
     <div className="Home container-fluid px-0 px-sm-2 px-md-5">
       <HomeChart />

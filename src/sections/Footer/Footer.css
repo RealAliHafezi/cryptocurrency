@@ -1,0 +1,55 @@
+.footer {
+  border-top: 1px solid var(--purple);
+}
+/* footer description */
+.footerLogoBox {
+  text-shadow: 1px 3px 3px white;
+}
+.footerLogoBox h1 {
+  cursor: default;
+}
+.footerLogo {
+  width: 150px;
+  height: 150px;
+  object-fit: contain;
+}
+.footerSocialIcon * {
+  font-size: 18px;
+}
+/* footer social media */
+.footerSocialMediaBox h1 {
+  cursor: default;
+}
+.footerSocialMediaBox a {
+  transform: translateX(0);
+  transition: all 0.2s;
+}
+.footerSocialMediaBox a:hover {
+  cursor: pointer;
+  transform: translateX(5px);
+}
+.footerSocialIcon {
+  font-size: 18px;
+}
+/* footer shortcut */
+.footerShortcutList li {
+  cursor: default;
+}
+.footerShortcutItem {
+  color: #999;
+  transition: all 0.2s;
+}
+.footerShortcutItem:hover {
+  cursor: pointer;
+  color: #fff;
+}
+/* footer copy section */
+.footerCopy p {
+  font-size: 12px;
+  letter-spacing: 1px;
+}
+@media only screen and (max-width: 992px) {
+  .footer {
+    background-color: var(--darkblue);
+  }
+}

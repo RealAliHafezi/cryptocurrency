@@ -1,0 +1,101 @@
+/* top Left section */
+.CoinTopSec {
+  border-bottom: 1px solid var(--darkpurple);
+}
+.CoinImage {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  border-radius: 50%;
+  box-shadow: 0 2px 20px -1px var(--darkpurple);
+}
+.CoinName {
+  cursor: default;
+}
+.CoinSym,
+.CoinCoin {
+  color: #444;
+  background-color: #e0e0e0;
+  border-radius: 4px;
+  cursor: default;
+}
+/* for description */
+.CoinLike {
+  cursor: pointer !important;
+}
+.CoinLike::before {
+  content: attr(data-hover);
+  visibility: hidden;
+  opacity: 0;
+  width: 150px;
+  font-size: 12px;
+  background: linear-gradient(
+    70deg,
+    var(--purple),
+    var(--darkpurple),
+    var(--blue)
+  );
+  color: #fff;
+  text-align: center;
+  border-radius: 2px;
+  padding: 5px 0;
+  transition: opacity 0.5s ease-in-out;
+  position: absolute;
+  z-index: 1;
+  left: -250%;
+  top: -150%;
+}
+.CoinLike:hover:before {
+  opacity: 1;
+  visibility: visible;
+}
+.CoinCoin,
+.CoinRank {
+  font-size: 12px;
+  padding: 2px 5px;
+  cursor: default;
+}
+
+/* Top Right Section */
+.CoinPriceDesc {
+  font-size: 13px;
+}
+.CoinPercentage {
+  font-size: 16px;
+}
+.CoinPrecentageIcon {
+  font-size: 20px;
+}
+.CoinPriceRangeInp[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: auto;
+  height: 5px;
+  background: var(--blue);
+  outline: none;
+  border-radius: 6px;
+}
+.CoinPriceRangeInp[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  cursor: default;
+  background: var(--purple);
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+.CoinPriceRangeInp[type="range"]::-moz-range-thumb {
+  cursor: default;
+  background: var(--purple);
+}
+.CoinPriceRangeLow,
+.CoinPriceRangeHigh {
+  font-size: 12px;
+}
+
+/* responsive */
+@media only screen and (max-width: 768px) {
+  .CoinPriceRangeInp[type="range"] {
+    width: 90%;
+  }
+}
