@@ -25,7 +25,26 @@ const CoinSlice = createSlice({
   name: "CoinSlice",
   initialState,
   reducers: {
-    AddToFavorite: (state, action) => {},
+    AddToFavorite: (state, action) => {
+      const card = state.Data.find((item) => item.id === action.payload.ID);
+      state.Favorite.push(card);
+      if (localStorage.getItem("favorite")) {
+        let ls = JSON.parse(localStorage.getItem("favorite"));
+        ls.push(card);
+        const newFavorite = JSON.stringify(ls);
+        localStorage.setItem("favorite", newFavorite);
+      } else {
+        const newFavorite = JSON.stringify(state.Favorite);
+        localStorage.setItem("favorite", newFavorite);
+      }
+    },
+    RemoveFromFavorite: (state, action) => {
+      const Data = JSON.parse(localStorage.getItem("favorite"));
+      const newState = Data.filter((item) => item.id !== action.payload.ID);
+      state.Favorite = newState;
+      const newFavorite = JSON.stringify(state.Favorite);
+      localStorage.setItem("favorite", newFavorite);
+    },
     SearchResult: (state, action) => {
       let data;
       if (action.payload.Data == null) {
@@ -91,5 +110,6 @@ const CoinSlice = createSlice({
     },
   },
 });
-export const { AddToFavorite, HomeFilter, SearchResult } = CoinSlice.actions;
+export const { AddToFavorite, RemoveFromFavorite, HomeFilter, SearchResult } =
+  CoinSlice.actions;
 export default CoinSlice.reducer;

@@ -1,5 +1,6 @@
 .Coin {
   background-color: var(--darkblue);
+  position: relative;
 }
 @media only screen and (max-width: 992px) {
   .Coin {

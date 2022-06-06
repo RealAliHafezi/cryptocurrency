@@ -1,0 +1,44 @@
+.CoinNav,
+.CoinNavActive {
+  background-color: var(--blue);
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+  position: fixed;
+  z-index: 9;
+}
+.CoinNav {
+  top: -70px;
+  transition: all 0.3s;
+}
+.CoinNavActive {
+  top: 0;
+  transition: all 0.3s;
+}
+.CoinNavbarImage {
+  width: 30px;
+  height: 30px;
+}
+.CoinNavbarName {
+  letter-spacing: 0.75px;
+  font-size: 18px;
+  cursor: default;
+}
+.CoinNavbarPrice {
+  letter-spacing: 1px;
+  cursor: default;
+}
+.CoinNavbarPercentage {
+  font-size: 14px;
+  cursor: default;
+}
+.CoinNavbarFavorite {
+  font-size: 13px !important;
+  transition: all 0.2s;
+}
+.CoinNavbarFavorite:hover {
+  cursor: pointer;
+  background-color: var(--darkblue);
+}
+.CoinNavbarFavorite svg {
+  font-size: 16px;
+}

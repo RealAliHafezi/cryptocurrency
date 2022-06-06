@@ -1,5 +1,10 @@
 .navbar {
-  background: linear-gradient(20deg , var(--blue) , var(--darkpurple) , var(--background));
+  background: linear-gradient(
+    20deg,
+    var(--blue),
+    var(--darkpurple),
+    var(--background)
+  );
   border-bottom-left-radius: 50px;
   border-bottom-right-radius: 50px;
   box-shadow: 0 1px 8px -2px black;
@@ -43,7 +48,6 @@
   }
   .navbar-nav .nav-item:hover {
     background-color: var(--darkblue);
-    border-radius: 10px;
   }
 }
 @media only screen and (max-width: 500px) {

@@ -7,7 +7,7 @@
 :root {
   --purple: #ac32e4;
   --darkpurple: #3c0a53;
-  --blue: #4801ff;
+  --blue: #4800ff;
   --darkblue: #0c2335;
   --background: #031624;
   --fire: #e25822;
@@ -44,6 +44,9 @@ ul,
 ol,
 li {
   list-style: none;
+}
+.cdefault {
+  cursor: default;
 }
 /* Local */
 @media only screen and (max-width: 992px) {

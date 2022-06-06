@@ -1,0 +1,50 @@
+.Favorite {
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+.FavoriteCard {
+  background: linear-gradient(75deg, var(--purple), var(--darkpurple) 80%);
+  box-shadow: 0 3px 10px -1px var(--background);
+  border-radius: 10px !important;
+}
+.FavoriteCard img {
+  transform: scale(1);
+  box-shadow: 0 3px 8px -1px black;
+  object-fit: contain;
+  transition: all 0.5s;
+}
+.FavoriteCard img:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 10px -1px black;
+}
+.FavoriteBtnShowMore {
+  border-radius: 8px;
+  background: radial-gradient(var(--blue) 20%, var(--background));
+  transition: all 1s;
+}
+.FavoriteBtnShowMore:hover {
+  border-radius: 10px;
+  background: linear-gradient(75deg, var(--blue), var(--background));
+}
+.FavoriteBtnRemove {
+  font-size: 14px !important;
+}
+/* responsive */
+@media only screen and (max-width: 991px) {
+  .Favorite {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .Favorite {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+}
+@media only screen and (max-width: 576px) {
+  .Favorite {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 0.75rem;
+  }
+}

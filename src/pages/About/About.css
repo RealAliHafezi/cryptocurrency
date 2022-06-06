@@ -1,0 +1,48 @@
+.AboutImage {
+  min-height: 50vh;
+  object-fit: cover;
+  border: 2px solid var(--blue);
+  filter: contrast(120%) saturate(2) drop-shadow(8px 8px 10px var(--background));
+  box-shadow: 0px 0px 40px 0px var(--darkpurple);
+}
+
+.AboutImageBox:hover .img-zoom-result {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  border: 1px solid var(--blue);
+  border-radius: 10px;
+}
+.AboutImageBox:hover .img-zoom-lens {
+  display: block;
+  position: absolute;
+  border-radius: 10px;
+  border: 1px solid var(--blue);
+  width: 50px;
+  height: 50px;
+  z-index: 19;
+}
+.AboutInfo {
+  min-height: 50vh;
+}
+.AboutTitle {
+  color: #b4b4b4;
+}
+.AboutValue {
+  font-size: 16px;
+  letter-spacing: 1.5px;
+}
+.AboutSkillsItem {
+  cursor: default;
+  background: linear-gradient(65deg, var(--blue), var(--darkpurple));
+}
+@media only screen and (max-width: 768px) {
+  .AboutImageBox:hover .img-zoom-result {
+    width: 75px;
+    height: 75px;
+    top: -30px;
+    left: -30px;
+  }
+}

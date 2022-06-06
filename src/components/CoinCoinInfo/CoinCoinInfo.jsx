@@ -5,7 +5,7 @@ import { AiOutlineStar } from "react-icons/ai";
 import "./CoinCoinInfo.css";
 function CoinCoinInfo({ coin }) {
   return (
-    <div className="CoinTopSec d-flex align-items-left align-items-md-center justify-content-md-between flex-column flex-md-row pb-5 pb-0">
+    <div className="CoinTopSec d-flex align-items-left align-items-md-center justify-content-md-between flex-column flex-md-row pb-5 px-3 pb-0">
       <div className="CoinInfoL d-flex flex-column">
         <div className="CoinInfoLT d-flex align-items-center mb-2">
           <img src={coin.image} alt={coin.name} className="CoinImage" />

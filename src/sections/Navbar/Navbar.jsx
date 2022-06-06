@@ -9,7 +9,7 @@ import "./Navbar.css";
 function Navbar() {
   const [Clicked, setClicked] = useState(true);
   return (
-    <nav className="navbar navbar-dark text-light navbar-expand-md px-3 px-sm-5 mb-3">
+    <nav className="navbar text-light navbar-expand-md px-3 px-sm-5 mb-3">
       <div className="container-fluid d-flex align-items-center">
         <div className="navbar-brand fs-2 fw-bolder d-flex align-items-center">
           <img src={Logo} alt="Logo" className="Navbar_Logo me-2 d-block" />
