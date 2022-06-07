@@ -1,0 +1,7 @@
+.FormInput label,
+.FormInput span {
+  font-size: 14px;
+}
+.FormInput > input:focus:invalid ~ span {
+  display: block !important;
+}

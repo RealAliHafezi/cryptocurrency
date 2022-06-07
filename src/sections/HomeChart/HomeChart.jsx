@@ -1,5 +1,5 @@
 //
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 // icon
 import { AiFillFire } from "react-icons/ai";
 import { BiTime } from "react-icons/bi";

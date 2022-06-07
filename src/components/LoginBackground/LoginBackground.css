@@ -1,0 +1,16 @@
+.LoginMySwiper {
+  z-index: 0;
+}
+.LoginSlideItem {
+  background-color: var(--background);
+  height: 80vh;
+}
+.LoginSlideItemImage {
+  left: 5%;
+  top: 50%;
+  transform: translateX(-5%) translateY(-50%);
+  filter: blur(4px);
+  /* width: 40vw; */
+  width: 300px;
+  object-fit: contain;
+}
